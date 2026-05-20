@@ -8,3 +8,6 @@ products_df.sort_values(by=["product_category_id","product_price"],
                         ascending=[False,True],inplace=True,kind="heapsort")
 print(products_df.nlargest(10,["product_price"]))
 print(products_df.nsmallest(10,["product_price"]))
+products_df['product_price_rank'] = products_df['product_price'].rank(ascending=False,
+                                                                      method="dense") 
+print(products_df)
